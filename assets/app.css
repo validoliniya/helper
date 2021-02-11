@@ -1,0 +1,308 @@
+body {
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    /*background: url("../img/background.png") no-repeat 50% 0;*/
+}
+
+TABLE {
+    margin-top: 15px;
+    border-color: #000 lightgrey;
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -khtml-border-radius: 10px;
+}
+
+TD, TH {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    height: 50px;
+    text-align: center;
+}
+
+TH {
+    color: white;
+    background: rgba(0, 0, 139, .8);
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #000;
+}
+
+.menu-main {
+    width: 100%;
+    margin-top: 70px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.menu-item {
+    width: 10%;
+    color: whitesmoke;
+    padding: 15px;
+    margin-top: 10px;
+    margin-right: 2px;
+    border-width: 5px;
+    background: rgba(221, 160, 221, .5);
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+li {
+    float: left;
+    display: inline;
+}
+
+.footer {
+    font-size: 20px;
+    position: absolute;
+    background: rgba(255, 192, 203, .5);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 30px;
+    border-width: 1px 0 0 0;
+    display: flex;
+    font-weight: bold;
+    color: lightgrey;
+    align-items: center;
+    justify-content: center;
+}
+
+.block {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(221, 160, 221, .5);
+}
+
+.pink-background
+{
+    background: rgba(221, 160, 221, .5);
+}
+
+.main-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50em;
+    border-color: #000 #4B0082;
+    border-width: 3px;
+    border-style: solid none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40em;
+    height: 400px;
+    border-color: #000 #4B0082;
+    border-width: 3px;
+    border-style: solid none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btn-lg {
+    width: 225px;
+    height: 40px;
+}
+
+.row {
+    padding: 15px 0;
+    margin: 0 -10px;
+    display: flex;
+    text-align: left;
+}
+.icon{
+    padding: 0 10px;
+    color: rgba(0, 0, 139, .8)
+}
+
+button {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: .6em 3em;
+    outline: none;
+    border-width: 1px 0;
+    border-style: solid none;
+    border-color: black;
+    border-radius: 6px;
+    background: rgba(0, 0, 139, .3);
+    transition: 0.2s;
+}
+
+A {
+    text-decoration: none;
+}
+
+.white {
+    color: whitesmoke;
+}
+
+.link {
+    color: rgba(0, 0, 139, .8);
+}
+
+.pagination {
+
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    background: #00008B;
+}
+
+.input {
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    background: #ffffff !important;
+    outline: none;
+    height: 30px;
+    width: 220px;
+    color: black;
+    font-size: 11px;
+    font-family: Arial;
+}
+
+.opacity {
+    opacity: 0.5;
+}
+
+.form {
+    margin-left: 20px;
+}
+
+.back {
+    width: 90px;
+    padding: 5px;
+}
+
+label {
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.di-block
+{
+    display: block;
+}
+
+.part
+{
+    flex-shrink: 0;
+    padding: 0 10px;
+}
+
+.part-1
+{
+    width: 10%;
+}
+
+.part-2
+{
+    width: 20%;
+}
+
+.part-3
+{
+    width: 30%;
+    flex-shrink: 0;
+}
+
+.part-4
+{
+    width: 40%;
+}
+
+.part-5
+{
+    width: 50%;
+}
+
+.part-6
+{
+    width: 60%;
+}
+
+.part-7
+{
+    width: 70%;
+}
+
+.part-8
+{
+    width: 80%;
+}
+
+.part-9
+{
+    width: 90%;
+}
+
+.part-10
+{
+    width: 100%;
+}
+
+header
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-center
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left, .right {
+    display: inline-block;
+    width: 100%;
+    margin-right: -100%;
+    vertical-align: bottom;
+}
+
+.right {
+    text-align: right;
+}
+.left a, .right a {
+    display: inline-block;
+    position: relative;
+}
+
+.center-header
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
