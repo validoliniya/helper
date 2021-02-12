@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\DatabaseRepository;
+use App\Repository\FieldTypeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="hms_database")
- * @ORM\Entity(repositoryClass=DatabaseRepository::class)
+ * @ORM\Entity(repositoryClass=FieldTypeRepository::class)
+ * @ORM\Table(name="`hms_field_types`")
  */
-class Database
+class FieldType
 {
     /**
      * @ORM\Id
@@ -21,21 +21,21 @@ class Database
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $name = '';
+    private string $type = '';
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): string
+    public function getType(): string
     {
-        return $this->name;
+        return $this->type;
     }
 
-    public function setName(string $name): self
+    public function setType(string $type): self
     {
-        $this->name = $name;
+        $this->type = $type;
 
         return $this;
     }

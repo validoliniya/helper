@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\DatabaseRepository;
+use App\Repository\OperationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="hms_database")
- * @ORM\Entity(repositoryClass=DatabaseRepository::class)
+ * @ORM\Entity(repositoryClass=OperationRepository::class)
+ * @ORM\Table(name="`hms_operation`")
  */
-class Database
+class Operation
 {
     /**
      * @ORM\Id
@@ -22,6 +22,11 @@ class Database
      * @ORM\Column(type="string", length=255)
      */
     private string $name = '';
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $template = '';
 
     public function getId(): ?int
     {
@@ -36,6 +41,18 @@ class Database
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getTemplate(): string
+    {
+        return $this->template;
+    }
+
+    public function setTemplate(string $template): self
+    {
+        $this->template = $template;
 
         return $this;
     }

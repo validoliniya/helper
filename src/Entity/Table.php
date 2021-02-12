@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\DatabaseRepository;
+use App\Repository\TableRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="hms_database")
- * @ORM\Entity(repositoryClass=DatabaseRepository::class)
+ * @ORM\Entity(repositoryClass=TableRepository::class)
+ * @ORM\Table(name="`hms_table`")
  */
-class Database
+class Table
 {
     /**
      * @ORM\Id
@@ -22,6 +22,11 @@ class Database
      * @ORM\Column(type="string", length=255)
      */
     private string $name = '';
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Database", inversedBy="database")
+     */
+    private Database $database;
 
     public function getId(): ?int
     {
@@ -36,6 +41,18 @@ class Database
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getDatabase(): Database
+    {
+        return $this->database;
+    }
+
+    public function setDatabase(Database $database) :self
+    {
+        $this->database = $database;
 
         return $this;
     }
