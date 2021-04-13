@@ -2,7 +2,7 @@
 
 namespace App\Controller\Database;
 
-use App\Entity\Database\Database\Database\Database\Database\Database;
+use App\Entity\Database\Database;
 use App\Form\Database\DatabaseCreateForm;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

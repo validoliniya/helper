@@ -2,7 +2,7 @@
 
 namespace App\Form\Database;
 
-use App\Entity\Database\Database\Database\Database\Database\Database;
+use App\Entity\Database\Database;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;

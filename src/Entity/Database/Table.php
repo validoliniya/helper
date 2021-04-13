@@ -24,7 +24,7 @@ class Table
     private string $name = '';
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Database", inversedBy="database")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Database\Database", inversedBy="database")
      */
     private Database $database;
 
