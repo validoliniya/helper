@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Database;
 
-use App\Repository\TableFieldsRepository;
+use App\Repository\Database\TableFieldsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
