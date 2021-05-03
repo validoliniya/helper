@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h3>Commands</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Command</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for command in commands %}
+            <tr>
+                <td>{{ command.name }}</td>
+                <td>{{ command.example }}</td>
+                <td>
+                    <div class="flex-center">
+                        <a href="{{ path('command.update', {'id': command.id}) }}"><i class="fas fa-edit icon"></i></a>
+                        <div  style="background: transparent;border: none;padding: 5px"><b> <i class="fas fa-trash-alt icon"></i></b></div>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

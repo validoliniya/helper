@@ -7,9 +7,7 @@ body {
     /*background: url("../img/background.png") no-repeat 50% 0;*/
 }
 
-.hide{
-    display: none;
-}
+
 .news-header{
     margin-top: 5%;
     text-align: center;
@@ -42,6 +40,11 @@ body {
 .img-block{
     display: flex;
     justify-content: left;
+}
+
+.icon{
+    padding: 0 10px;
+    color: rgba(0, 0, 139, .8)
 }
 
 .article-img{
@@ -222,5 +225,50 @@ header
     color: lightgrey;
     align-items: center;
     justify-content: center;
+}
+.input {
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    background: #ffffff !important;
+    outline: none;
+    height: 30px;
+    width: 220px;
+    color: black;
+    font-size: 11px;
+    font-family: Arial;
+}
+TABLE {
+    margin-top: 15px;
+    border-color: #000 lightgrey;
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -khtml-border-radius: 10px;
+}
+
+TD, TH {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    height: 50px;
+    text-align: center;
+}
+
+TH {
+    color: white;
+    background: rgba(0, 0, 139, .8);
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #000;
+}
+.hide{
+    display: none;
 }
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repository\Command;
 
-use App\Entity\Command;
+use App\Entity\Command\Command;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,5 +17,13 @@ class CommandRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Command::class);
+    }
+
+    public function getLastByNumber(int $number): array
+    {
+        return $this->createQueryBuilder('c')
+                    ->setMaxResults($number)
+                    ->getQuery()
+                    ->getResult();
     }
 }

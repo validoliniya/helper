@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Command;
 
-use App\Repository\CommandRepository;
+use App\Repository\Command\CommandRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,7 +26,17 @@ class Command
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $template = '';
+    private ?string $template = '';
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isImmutable = true;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $example = '';
 
     public function getId(): ?int
     {
@@ -45,7 +55,7 @@ class Command
         return $this;
     }
 
-    public function getTemplate(): string
+    public function getTemplate(): ?string
     {
         return $this->template;
     }
@@ -53,6 +63,30 @@ class Command
     public function setTemplate(string $template): self
     {
         $this->template = $template;
+
+        return $this;
+    }
+
+    public function isImmutable(): ?bool
+    {
+        return $this->isImmutable;
+    }
+
+    public function setImmutable(bool $isImmutable): self
+    {
+        $this->isImmutable = $isImmutable;
+
+        return $this;
+    }
+
+    public function getExample(): ?string
+    {
+        return $this->example;
+    }
+
+    public function setExample(string $example): self
+    {
+        $this->example = $example;
 
         return $this;
     }
