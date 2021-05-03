@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h3>Databases</h3>
+    <div class="main-block">
+        {% for db in databases %}
+            <div class="row">
+                <div class="bold ">{{ loop.index }}</div>
+                <div style="padding-left: 15px">
+                    {{ db.name }}
+                </div>
+            </div>
+            <br>
+            <br>
+        {% endfor %}
+    </div>
+{% endblock %}

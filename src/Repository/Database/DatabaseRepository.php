@@ -18,4 +18,12 @@ class DatabaseRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Database::class);
     }
+
+    public function getLastByNumber(int $number): array
+    {
+        return $this->createQueryBuilder('d')
+                    ->setMaxResults($number)
+                    ->getQuery()
+                    ->getResult();
+    }
 }
