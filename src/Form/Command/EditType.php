@@ -3,6 +3,8 @@
 namespace App\Form\Command;
 
 use App\Entity\Command\Command;
+use App\Entity\Command\CommandSection;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -21,6 +23,10 @@ class EditType extends AbstractType
                     'yes' => true,
                     'no'  => false
                 ]
+            ])
+            ->add('section', EntityType::class, [
+                'label' => 'Section',
+                'class' => CommandSection::class
             ])
             ->add('template', TextType::class,[
                 'empty_data' => ''

@@ -26,7 +26,7 @@ class Command
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private ?string $template = '';
+    private string $template = '';
 
     /**
      * @ORM\Column(type="boolean")
@@ -37,6 +37,12 @@ class Command
      * @ORM\Column(type="string", length=255)
      */
     private $example = '';
+
+    /**
+     * @ORM\ManyToOne(targetEntity=CommandSection::class, inversedBy="commands")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $section;
 
     public function getId(): ?int
     {
@@ -55,7 +61,7 @@ class Command
         return $this;
     }
 
-    public function getTemplate(): ?string
+    public function getTemplate(): string
     {
         return $this->template;
     }
@@ -87,6 +93,18 @@ class Command
     public function setExample(string $example): self
     {
         $this->example = $example;
+
+        return $this;
+    }
+
+    public function getSection(): ?CommandSection
+    {
+        return $this->section;
+    }
+
+    public function setSection(?CommandSection $section): self
+    {
+        $this->section = $section;
 
         return $this;
     }

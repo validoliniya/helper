@@ -3,7 +3,11 @@
     <h3>Commands</h3>
         <div class="main-block">
             {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-            <div class="row">
+                <div class="row">
+                    <div class="part-2">{{ form_label(form.section) }}</div>
+                    <div class="part-8">{{ form_widget(form.section, {'attr' : {'class': 'input'}}) }}</div>
+                </div>
+                <div class="row">
                 <div class="part-2">{{ form_label(form.name) }}</div>
                 <div class="part-8">    {{ form_widget(form.name, {'attr' : {'class': 'input','label':'Name'}}) }}</div>
             </div>
