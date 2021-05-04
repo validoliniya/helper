@@ -78,7 +78,7 @@ class Command
         return $this->isImmutable;
     }
 
-    public function setImmutable(bool $isImmutable): self
+    public function setIsImmutable(bool $isImmutable): self
     {
         $this->isImmutable = $isImmutable;
 

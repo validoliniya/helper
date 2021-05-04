@@ -1,0 +1,11 @@
+<div class="">
+    <ul class="menu-main">
+        <li><a href="{{ path('command.list') }}"
+               class="menu-item">All</a></li>
+        {% for section in sections %}
+            <li><a href="{{ path('command.section.list',{'section_id': section.id}) }}"
+                   class="menu-item">{{ section.name|capitalize }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+<br>

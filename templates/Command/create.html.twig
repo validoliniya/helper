@@ -15,7 +15,7 @@
                 <div class="part-2">{{ form_label(form.is_immutable) }}</div>
                 <div class="part-8">{{ form_widget(form.is_immutable, {'attr' : {'class': 'input'}}) }}</div>
             </div>
-                <div id="template-block" class="row {{ is_immutable ? '' : 'hide' }}">
+                <div id="template-block" class="row {{ is_immutable ? 'hide' : '' }}">
                     <div class="part-2">{{ form_label(form.template) }}</div>
                     <div class="part-8">{{ form_widget(form.template, {'attr' : {'class': 'input'}}) }}</div>
                 </div>
