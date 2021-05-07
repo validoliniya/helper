@@ -7,6 +7,7 @@ use App\Form\Command\EditType;
 use App\Repository\Command\CommandRepository;
 use App\Repository\Command\CommandSectionRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,10 +38,17 @@ class CommandController extends AbstractController
      * @param CommandRepository $commandRepository
      * @return Response
      */
-    public function showSection(CommandRepository $commandRepository,CommandSectionRepository $commandSectionRepository,int $section_id): Response
+    public function showSection(CommandRepository $commandRepository,Request $request,CommandSectionRepository $commandSectionRepository,PaginatorInterface $paginator,int $section_id): Response
     {
+        $queryBuilder = $commandRepository->getWithSearchBySectionIdQueryBuilder($section_id);
+
+        $pagination = $paginator->paginate(
+            $queryBuilder,
+            $request->query->getInt('page', 1),
+            5
+        );
         return $this->render('Command/section_list.html.twig',[
-            'commands' => $commandRepository->findBySectionId($section_id),
+            'pagination' => $pagination,
             'section' => $commandSectionRepository->findOneById($section_id)
         ]);
     }

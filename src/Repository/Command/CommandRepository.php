@@ -4,6 +4,7 @@ namespace App\Repository\Command;
 
 use App\Entity\Command\Command;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -27,12 +28,20 @@ class CommandRepository extends ServiceEntityRepository
                     ->getResult();
     }
 
-    public function findBySectionId(int $id)
+    public function findBySectionId(int $id): array
     {
         return $this->createQueryBuilder('c')
                     ->where('IDENTITY(c.section) = :id')
                     ->setParameter('id', $id)
                     ->getQuery()
                     ->getResult();
+    }
+
+    public function getWithSearchBySectionIdQueryBuilder(int $id):QueryBuilder
+    {
+        return $this->createQueryBuilder('c')
+            ->where('IDENTITY(c.section) = :id')
+            ->setParameter('id', $id);
+
     }
 }
