@@ -37,10 +37,11 @@ class CommandController extends AbstractController
      * @param CommandRepository $commandRepository
      * @return Response
      */
-    public function showSection(CommandRepository $commandRepository,int $section_id): Response
+    public function showSection(CommandRepository $commandRepository,CommandSectionRepository $commandSectionRepository,int $section_id): Response
     {
         return $this->render('Command/section_list.html.twig',[
-            'commands' => $commandRepository->findBySectionId($section_id)
+            'commands' => $commandRepository->findBySectionId($section_id),
+            'section' => $commandSectionRepository->findOneById($section_id)
         ]);
     }
 
