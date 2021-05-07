@@ -317,3 +317,8 @@ tr:nth-child(even) {
 {
     color: whitesmoke;
 }
+
+.logout{
+  text-align: right;
+  width: 100%;
+}

@@ -12,6 +12,12 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
+        {% if app.user %}
+            <div class="page-item logout">
+               <span style="padding-right: 5px">You are logged in as {{ app.user.username }},</span><a href="{{ path('logout') }}">Logout</a>
+            </div>
+        {% endif %}
     </head>
     <body>
         {% block body %}{% endblock %}

@@ -12,6 +12,7 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         bind:
             string $secretPasswordWord: '%env(SECRET_PASSWORD_WORD)%'
+            string $defaultUserEmail: '%env(DEFAULT_USER_EMAIL)%'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
