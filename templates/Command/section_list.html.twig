@@ -13,7 +13,6 @@
         <tr>
             <th>Name</th>
             <th>Command</th>
-            <th>Section</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -21,7 +20,6 @@
         {% for command in commands %}
             <tr>
                 <td>{{ command.name }}</td>
-                <td>{{ command.section.name }}</td>
                 <td>{{ command.example }}</td>
                 <td>
                     <div class="flex-center">
