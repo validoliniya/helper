@@ -26,10 +26,15 @@ class CommandController extends AbstractController
      * @param CommandRepository $commandRepository
      * @return Response
      */
-    public function list(CommandRepository $commandRepository): Response
+    public function list(CommandRepository $commandRepository,Request $request,PaginatorInterface $paginator): Response
     {
+        $pagination = $paginator->paginate(
+            $commandRepository->createQueryBuilder('c'),
+            $request->query->getInt('page', 1),
+            5
+        );
         return $this->render('Command/list.html.twig',[
-           'commands' => $commandRepository->getLastByNumber(100)
+           'pagination' => $pagination
         ]);
     }
 

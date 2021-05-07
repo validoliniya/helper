@@ -3,7 +3,7 @@
 {% block body %}
     {{ render(path('command.nav.menu')) }}
     <div class="flex-center">
-        <div class="part-2 left"><h1>Commands</h1></div>
+        <div class="part-2 left white"><h1>All Commands</h1></div>
         <div class="part-2 right" style="margin-right: 15px">
             <button><a class="white button" href="{{ path('command.create') }}">Add new command</a></button>
         </div>
@@ -18,7 +18,7 @@
         </tr>
         </thead>
         <tbody>
-        {% for command in commands %}
+        {% for command in pagination %}
             <tr>
                 <td>{{ command.name }}</td>
                 <td>{{ command.section.name }}</td>
@@ -34,4 +34,5 @@
         {% endfor %}
         </tbody>
     </table>
+    {{ knp_pagination_render(pagination, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
 {% endblock %}
