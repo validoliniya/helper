@@ -63,6 +63,7 @@ li {
 }
 
 .main-block {
+    background-color: rgba(221, 160, 221, .3);
     padding-top: 15px;
     padding-left: 25px;
     display: block;
@@ -222,12 +223,7 @@ header
     justify-content: flex-end;
 }
 
-.flex-center
-{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .left, .right {
     display: inline-block;
@@ -243,7 +239,10 @@ header
     display: inline-block;
     position: relative;
 }
-
+.flex-center
+{
+    justify-content: center;
+}
 .center-header
 {
     display: flex;

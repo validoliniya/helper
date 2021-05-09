@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <h3>Commands</h3>
-        <div class="main-block">
+    <div class="white">  <h1>Add Command</h1></div>
+        <div class="main-block white">
+            <div style="margin-left: 27%;" class="flex-center">
             {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                 <div class="row">
                     <div class="part-2">{{ form_label(form.section) }}</div>
@@ -28,6 +29,7 @@
                 {{ form_widget(form.submit) }}
             </div>
             {{ form_end(form) }}
+            </div>
         </div>
 {% endblock %}
 {% block javascripts %}

@@ -8,6 +8,7 @@
             <button><a class="white button" href="{{ path('command.create') }}">Add new command</a></button>
         </div>
     </div>
+    {% if pagination.getItems|length > 0 %}
     <table class="table">
         <thead>
         <tr>
@@ -34,5 +35,9 @@
         {% endfor %}
         </tbody>
     </table>
+    {% else %}
+        <div class="row ">No commands found</div>
+    {% endif %}
     {{ knp_pagination_render(pagination, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+
 {% endblock %}
