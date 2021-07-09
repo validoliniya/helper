@@ -37,11 +37,16 @@ class CommandRepository extends ServiceEntityRepository
                     ->getResult();
     }
 
-    public function getWithSearchBySectionIdQueryBuilder(int $id):QueryBuilder
+    public function getWithSearchBySectionIdQueryBuilder(int $id): QueryBuilder
     {
         return $this->createQueryBuilder('c')
-            ->where('IDENTITY(c.section) = :id')
-            ->setParameter('id', $id);
+                    ->where('IDENTITY(c.section) = :id')
+                    ->setParameter('id', $id);
 
+    }
+
+    public function findOneById(int $id): ?Command
+    {
+        return $this->findOneBy(['id' => $id]);
     }
 }

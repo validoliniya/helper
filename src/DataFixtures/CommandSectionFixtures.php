@@ -8,7 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 class CommandSectionFixtures extends BaseFixture
 {
     public const DEFAULT_COMMANDS_SECTIONS = [
-        'openvpn', 'docker', 'handlers', 'mysql', 'tests', 'linux', 'server', 'composer', 'symfony', 'redis'
+        'openvpn', 'docker', 'handlers', 'mysql', 'tests', 'linux', 'server', 'composer', 'symfony', 'redis', 'git', 'other'
     ];
 
     protected function loadData(ObjectManager $manager)

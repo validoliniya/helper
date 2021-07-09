@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Command;
+namespace App\Controller\View\Command;
 
 use App\Entity\Command\Command;
 use App\Form\Command\EditType;

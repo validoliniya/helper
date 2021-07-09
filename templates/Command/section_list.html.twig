@@ -1,5 +1,4 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
     {{ render(path('command.nav.menu')) }}
     <div class="flex-center">
@@ -25,7 +24,7 @@
                 <td>
                     <div class="flex-center">
                         <a href="{{ path('command.update', {'id': command.id}) }}"><i class="fas fa-edit icon"></i></a>
-                        <div style="background: transparent;border: none;padding: 5px"><b> <i
+                        <div class="d" data-delete-command-url="{{ path('api.v1.command.delete', {'id': command.id}) }}" style="background: transparent;border: none;padding: 5px"><b> <i
                                         class="fas fa-trash-alt icon"></i></b></div>
                     </div>
                 </td>
@@ -37,4 +36,26 @@
         <div class="main-block white ">No commands found</div>
     {% endif %}
     {{ knp_pagination_render(pagination, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+{% endblock %}
+{% block javascripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('div[data-delete-command-url]').forEach(function(el) {
+            el.addEventListener('click', function(evt) {
+                evt.preventDefault();
+                location.reload();
+                fetch(el.getAttribute('data-delete-command-url'),{
+                    method: `DELETE`,
+                })
+                    .then(response => {
+                        if(response.status === 200){
+                            alert('Command deleted!');
+                                } else {
+                                 alert('An error ');
+                                }
+                    })
+            })
+        });
+    })
+</script>
 {% endblock %}

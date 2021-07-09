@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Database;
+namespace App\Controller\View\Database;
 
 use App\Entity\Database\Database;
 use App\Form\Database\DatabaseCreateForm;
