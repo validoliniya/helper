@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ render(path('command.nav.menu')) }}
+    <div class="flex-center">
+        <div class="part-2 left white"><h1>All Commands</h1></div>
+        <div class="part-2 right" style="margin-right: 15px">
+            <button><a class="white button" href="{{ path('command.create') }}">Add new command</a></button>
+        </div>
+    </div>
+    {% if pagination.getItems|length > 0 %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Task</th>
+                <th>Time</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for timer in pagination %}
+                <tr>
+                    <td>{{ timer.task.name }}</td>
+                    <td>{{ timer.time }}</td>
+                    <td>    <div class="flex-center">
+                            <a href="{{ path('timer.task.edit', {'id': timer.id}) }}"><i class="fas fa-edit icon"></i></a>
+                            <div style="background: transparent;border: none;padding: 5px"><b> <i
+                                            class="fas fa-trash-alt icon"></i></b></div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="row ">No commands found</div>
+    {% endif %}
+    {{ knp_pagination_render(pagination, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+
+{% endblock %}
