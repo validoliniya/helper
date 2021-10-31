@@ -24,7 +24,9 @@ class TimerController extends AbstractController
 
     /**
      * @Route("/list", name="timer.list", methods={"GET"})
-     * @param Request                $request
+     * @param Request            $request
+     * @param TimerRepository    $timerRepository
+     * @param PaginatorInterface $paginator
      * @return Response
      */
     public function list(Request $request,TimerRepository $timerRepository,PaginatorInterface $paginator){
@@ -43,6 +45,8 @@ class TimerController extends AbstractController
     /**
      * @Route("/create", name="timer.task.create", methods={"GET","POST"})
      * @param Request                $request
+     * @param EntityManagerInterface $entityManager
+     * @param UrlGeneratorInterface  $urlGenerator
      * @return Response
      */
     public function create(Request $request,EntityManagerInterface $entityManager,UrlGeneratorInterface $urlGenerator)
@@ -64,7 +68,11 @@ class TimerController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="timer.task.edit", methods={"GET","POST"})
+     * @param int                    $id
      * @param Request                $request
+     * @param EntityManagerInterface $entityManager
+     * @param UrlGeneratorInterface  $urlGenerator
+     * @param TimerRepository        $timerRepository
      * @return Response
      */
     public function edit(
@@ -80,7 +88,7 @@ class TimerController extends AbstractController
         {
             throw new NotFoundHttpException();
         }
-        $form = $this->createForm(EditType::class, new Timer());
+        $form = $this->createForm(EditType::class, $timer);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $timer = $form->getData();
