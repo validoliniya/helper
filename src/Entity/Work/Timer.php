@@ -2,12 +2,10 @@
 
 namespace App\Entity\Work;
 
-use App\Entity\Work\Task;
-use App\Repository\TimerRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=TimerRepository::class)
+ *  @ORM\Entity
  */
 class Timer
 {

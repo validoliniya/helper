@@ -5,7 +5,9 @@ namespace App\Controller\View\Work;
 use App\Entity\Work\Timer;
 use App\Form\Work\EditType;
 use App\Repository\Work\TimerRepository;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,9 +27,16 @@ class TimerController extends AbstractController
      * @param Request                $request
      * @return Response
      */
-    public function list(TimerRepository $timerRepository){
+    public function list(Request $request,TimerRepository $timerRepository,PaginatorInterface $paginator){
+        $queryBuilder = $timerRepository->createQueryBuilder('t');
+
+        $pagination = $paginator->paginate(
+            $queryBuilder,
+            $request->query->getInt('page', 1),
+            5
+        );
         return $this->render('Work/timer.html.twig',[
-            'times' => $timerRepository->findAll()
+            'pagination' => $pagination,
         ]);
     }
 
@@ -41,13 +50,15 @@ class TimerController extends AbstractController
         $form = $this->createForm(EditType::class, new Timer());
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($form->getData());
+            $timer = $form->getData();
+            $timer->setTempDate(new DateTime());
+            $entityManager->persist($timer);
             $entityManager->flush();
 
-            return new RedirectResponse($urlGenerator->generate('timer.task.list'));
+            return new RedirectResponse($urlGenerator->generate('timer.list'));
         }
         return $this->render('Work/edit.html.twig',[
-            'form' => $form
+            'form' => $form->createView()
         ]);
     }
 
@@ -72,13 +83,15 @@ class TimerController extends AbstractController
         $form = $this->createForm(EditType::class, new Timer());
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($form->getData());
+            $timer = $form->getData();
+            $timer->setTempDate(new DateTime());
+            $entityManager->persist($timer);
             $entityManager->flush();
 
-            return new RedirectResponse($urlGenerator->generate('timer.task.list'));
+            return new RedirectResponse($urlGenerator->generate('timer.list'));
         }
         return $this->render('Work/edit.html.twig',[
-            'form' => $form
+            'form' => $form->createView()
         ]);
     }
 }

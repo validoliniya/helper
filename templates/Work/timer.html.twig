@@ -5,7 +5,7 @@
     <div class="flex-center">
         <div class="part-2 left white"><h1>All Commands</h1></div>
         <div class="part-2 right" style="margin-right: 15px">
-            <button><a class="white button" href="{{ path('command.create') }}">Add new command</a></button>
+            <button><a class="white button" href="{{ path('timer.task.create') }}">Set new task time</a></button>
         </div>
     </div>
     {% if pagination.getItems|length > 0 %}
@@ -22,10 +22,14 @@
                 <tr>
                     <td>{{ timer.task.name }}</td>
                     <td>{{ timer.time }}</td>
-                    <td>    <div class="flex-center">
-                            <a href="{{ path('timer.task.edit', {'id': timer.id}) }}"><i class="fas fa-edit icon"></i></a>
+                    <td>
+                        <div class="flex-center">
+                            <a href="{{ path('timer.task.edit', {'id': timer.id}) }}"><i
+                                        class="fas fa-edit icon"></i></a>
                             <div style="background: transparent;border: none;padding: 5px"><b> <i
                                             class="fas fa-trash-alt icon"></i></b></div>
+                            <div style="color: rgba(0, 0, 139, .8);background: transparent;border: none;padding: 5px"><i
+                                        class="fas fa-clock"></i></div>
                         </div>
                     </td>
                 </tr>
@@ -36,5 +40,4 @@
         <div class="row ">No commands found</div>
     {% endif %}
     {{ knp_pagination_render(pagination, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
-
 {% endblock %}

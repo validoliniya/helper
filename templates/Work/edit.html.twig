@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="white"><h1>Add Command</h1></div>
+    {{ form_start(form) }}
+    <div class="main-block white">
+        <div class="row">
+            <div class="part-2">{{ form_label(form.task) }}</div>
+            <div class="part-8">{{ form_widget(form.task, {'attr' : {'class': 'input'}}) }}</div>
+        </div>
+        <div id="template-block" class="row">
+            <div class="part-2">{{ form_label(form.time) }}</div>
+            <div class="part-8">{{ form_widget(form.time, {'attr' : {'class': 'input'}}) }}</div>
+        </div>
+        <div class="row">
+            {{ form_widget(form.submit) }}
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

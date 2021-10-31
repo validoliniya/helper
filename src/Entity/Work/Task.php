@@ -2,7 +2,7 @@
 
 namespace App\Entity\Work;
 
-use App\Repository\TaskRepository;
+use App\Repository\Work\TaskRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,5 +37,9 @@ class Task
         $this->name = $name;
 
         return $this;
+    }
+    public function __toString():string
+    {
+        return $this->name;
     }
 }
