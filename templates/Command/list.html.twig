@@ -27,10 +27,18 @@
                         <td>{{ command.example }}</td>
                         <td>
                             <div class="flex-center">
-                                <a href="{{ path('command.update', {'id': command.id}) }}"><i
-                                            class="fas fa-edit icon"></i></a>
-                                <div style="background: transparent;border: none;padding: 5px"><b> <i
-                                                class="fas fa-trash-alt icon"></i></b></div>
+                                <div style="margin-top: 2px;padding-right: 20px">
+                                    <a href="{{ path('command.update', {'id': command.id}) }}">
+                                        <svg width="15" height="15">
+                                            <use xlink:href="#edit-icon"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div>
+                                    <svg width="20" height="20">
+                                        <use xlink:href="#trash-icon"></use>
+                                    </svg>
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -39,7 +47,8 @@
             </table>
         </div>
     {% else %}
-        <div class="row ">No commands found</div>
+        <div class="main-block white table-align not-found-block"><h2 style="margin-top: auto">No commands found</h2>
+        </div>
     {% endif %}
     {{ knp_pagination_render(pagination, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
 

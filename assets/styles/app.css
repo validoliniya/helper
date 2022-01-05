@@ -341,3 +341,8 @@ tr:nth-child(even) {
     margin-right: auto;
     margin-left: auto;
 }
+
+.not-found-block{
+    height: 200px;
+    text-align: center;
+}

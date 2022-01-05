@@ -24,9 +24,11 @@
                 <td>
                     <div class="flex-center">
                         <div style="margin-top: 2px;padding-right: 20px">
-                        <a href="{{ path('command.update', {'id': command.id}) }}"><svg width="15" height="15">
+                        <a href="{{ path('command.update', {'id': command.id}) }}">
+                            <svg width="15" height="15">
                                 <use xlink:href="#edit-icon"></use>
-                            </svg></a>
+                            </svg>
+                        </a>
                         </div>
                         <div data-delete-command-url="{{ path('api.v1.command.delete', {'id': command.id}) }}"><b>
                                 <svg width="20" height="20">
@@ -41,7 +43,7 @@
         </tbody>
     </table>
     {% else %}
-        <div class="main-block white table-align" style="height: 200px; text-align: center"><h2 style="margin-top: auto">No commands found</h2></div>
+        <div class="main-block white table-align not-found-block"><h2 style="margin-top: auto">No commands found</h2></div>
     {% endif %}
     {{ knp_pagination_render(pagination, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
 {% endblock %}
