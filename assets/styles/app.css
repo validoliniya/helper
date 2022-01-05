@@ -20,7 +20,6 @@ body {
 
 .menu-main {
     width: 100%;
-    margin-top: 30px;
     margin-bottom: 40px;
     padding-top: 10px;
     padding-bottom: 30px;
@@ -241,6 +240,7 @@ header
 }
 .flex-center
 {
+    display: flex;
     justify-content: center;
 }
 .center-header
@@ -320,4 +320,18 @@ tr:nth-child(even) {
 .logout{
   text-align: right;
   width: 100%;
+}
+
+.started{
+    color: deeppink;
+    background: transparent;
+    border: none;
+    padding: 5px;
+}
+
+.stopped{
+    color: rgba(0, 0, 139, .8);
+    background: transparent;
+    border: none;
+    padding: 5px;
 }

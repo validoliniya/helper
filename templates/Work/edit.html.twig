@@ -8,8 +8,12 @@
             <div class="part-8">{{ form_widget(form.task, {'attr' : {'class': 'input'}}) }}</div>
         </div>
         <div id="template-block" class="row">
-            <div class="part-2">{{ form_label(form.time) }}</div>
-            <div class="part-8">{{ form_widget(form.time, {'attr' : {'class': 'input'}}) }}</div>
+            <div class="part-2">{{ form_label(form.hours) }}</div>
+            <div class="part-8">{{ form_widget(form.hours, {'attr' : {'class': 'input'}}) }}</div>
+        </div>
+        <div id="template-block" class="row">
+            <div class="part-2">{{ form_label(form.minutes) }}</div>
+            <div class="part-8">{{ form_widget(form.minutes, {'attr' : {'class': 'input'}}) }}</div>
         </div>
         <div class="row">
             {{ form_widget(form.submit) }}

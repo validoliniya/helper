@@ -20,7 +20,8 @@ class EditType extends AbstractType
                 'label' => 'Task',
                 'class' => Task::class
             ])
-            ->add('time', IntegerType::class)
+            ->add('hours', IntegerType::class)
+            ->add('minutes', IntegerType::class)
             ->add('submit', SubmitType::class);
     }
 

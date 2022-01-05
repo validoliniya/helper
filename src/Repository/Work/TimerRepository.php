@@ -21,6 +21,6 @@ class TimerRepository extends ServiceEntityRepository
 
     public function findOneById(int $id): ? Timer
     {
-        $this->find($id);
+       return $this->find($id);
     }
 }

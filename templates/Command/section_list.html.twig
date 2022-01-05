@@ -23,9 +23,17 @@
                 <td>{{ command.example }}</td>
                 <td>
                     <div class="flex-center">
-                        <a href="{{ path('command.update', {'id': command.id}) }}"><i class="fas fa-edit icon"></i></a>
-                        <div class="d" data-delete-command-url="{{ path('api.v1.command.delete', {'id': command.id}) }}" style="background: transparent;border: none;padding: 5px"><b> <i
-                                        class="fas fa-trash-alt icon"></i></b></div>
+                        <div style="margin-top: 2px;padding-right: 20px">
+                        <a href="{{ path('command.update', {'id': command.id}) }}"><svg width="15" height="15">
+                                <use xlink:href="#edit-icon"></use>
+                            </svg></a>
+                        </div>
+                        <div data-delete-command-url="{{ path('api.v1.command.delete', {'id': command.id}) }}"><b>
+                                <svg width="20" height="20">
+                                    <use xlink:href="#trash-icon"></use>
+                                </svg>
+                            </b>
+                        </div>
                     </div>
                 </td>
             </tr>
@@ -39,23 +47,23 @@
 {% endblock %}
 {% block javascripts %}
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('div[data-delete-command-url]').forEach(function(el) {
-            el.addEventListener('click', function(evt) {
-                evt.preventDefault();
-                location.reload();
-                fetch(el.getAttribute('data-delete-command-url'),{
-                    method: `DELETE`,
-                })
-                    .then(response => {
-                        if(response.status === 200){
-                            alert('Command deleted!');
-                                } else {
-                                 alert('An error ');
-                                }
-                    })
-            })
-        });
-    })
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     document.querySelectorAll('div[data-delete-command-url]').forEach(function(el) {
+    //         el.addEventListener('click', function(evt) {
+    //             evt.preventDefault();
+    //             location.reload();
+    //             fetch(el.getAttribute('data-delete-command-url'),{
+    //                 method: `DELETE`,
+    //             })
+    //                 .then(response => {
+    //                     if(response.status === 200){
+    //                         alert('Command deleted!');
+    //                             } else {
+    //                              alert('An error ');
+    //                             }
+    //                 })
+    //         })
+    //     });
+    // })
 </script>
 {% endblock %}

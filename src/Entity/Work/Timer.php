@@ -5,7 +5,7 @@ namespace App\Entity\Work;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- *  @ORM\Entity
+ * @ORM\Entity
  */
 class Timer
 {
@@ -30,7 +30,12 @@ class Timer
     /**
      * @ORM\Column(type="integer")
      */
-    private $time;
+    private int $hours = 0;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private int $minutes = 0;
 
     public function getId(): ?int
     {
@@ -61,16 +66,33 @@ class Timer
         return $this;
     }
 
-    public function getTime():int
+    public function getHours(): int
     {
-        return $this->time;
+        return $this->hours;
     }
 
-    public function setTime(int $time):self
+    public function setHours(int $hours): self
     {
-        $this->time = $time;
+        $this->hours = $hours;
 
         return $this;
+    }
+
+    public function getMinutes(): int
+    {
+        return $this->minutes;
+    }
+
+    public function setMinutes(int $minutes): self
+    {
+        $this->minutes = $minutes;
+
+        return $this;
+    }
+
+    public function getTime(): string
+    {
+        return sprintf('%s:%s', $this->hours, $this->minutes);
     }
 
 }

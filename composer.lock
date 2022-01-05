@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b3c758a81ededebc390a9a0e878ab02",
+    "content-hash": "b877e529bff4c2362aea12beeaa1bf52",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2431,20 +2431,21 @@
         },
         {
             "name": "symfony/asset",
-            "version": "v5.2.3",
+            "version": "v5.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/asset.git",
-                "reference": "54a42aa50f9359d1184bf7e954521b45ca3d5828"
+                "reference": "abe64fee9fa2978c730c84d0d6df760f2d9ddba0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/asset/zipball/54a42aa50f9359d1184bf7e954521b45ca3d5828",
-                "reference": "54a42aa50f9359d1184bf7e954521b45ca3d5828",
+                "url": "https://api.github.com/repos/symfony/asset/zipball/abe64fee9fa2978c730c84d0d6df760f2d9ddba0",
+                "reference": "abe64fee9fa2978c730c84d0d6df760f2d9ddba0",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2.5"
+                "php": ">=7.2.5",
+                "symfony/polyfill-php80": "^1.16"
             },
             "require-dev": {
                 "symfony/http-client": "^4.4|^5.0",
@@ -2480,7 +2481,7 @@
             "description": "Manages URL generation and versioning of web assets such as CSS stylesheets, JavaScript files and image files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/asset/tree/v5.2.3"
+                "source": "https://github.com/symfony/asset/tree/v5.2.12"
             },
             "funding": [
                 {
@@ -2496,7 +2497,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-27T10:01:46+00:00"
+            "time": "2021-07-21T12:38:00+00:00"
         },
         {
             "name": "symfony/cache",

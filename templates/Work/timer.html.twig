@@ -21,15 +21,21 @@
             {% for timer in pagination %}
                 <tr>
                     <td>{{ timer.task.name }}</td>
-                    <td>{{ timer.time }}</td>
+                    <td>{{ timer.getTime }}</td>
                     <td>
                         <div class="flex-center">
                             <a href="{{ path('timer.task.edit', {'id': timer.id}) }}"><i
                                         class="fas fa-edit icon"></i></a>
                             <div style="background: transparent;border: none;padding: 5px"><b> <i
-                                            class="fas fa-trash-alt icon"></i></b></div>
-                            <div style="color: rgba(0, 0, 139, .8);background: transparent;border: none;padding: 5px"><i
-                                        class="fas fa-clock"></i></div>
+                                            class="fas fa-trash-alt icon"></i></b>
+                            </div>
+                            <div><i
+                                        data-start-timer="{{ path('api.timer.start',{id:timer.id}) }}"
+                                        data-stop-timer="{{ path('api.timer.stop',{id:timer.id}) }}"
+                                        class="fas fa-clock stopped">
+
+                                </i>
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -40,4 +46,59 @@
         <div class="row ">No commands found</div>
     {% endif %}
     {{ knp_pagination_render(pagination, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+{% endblock %}
+{% block javascripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log(document.querySelectorAll('i[data-start-timer]'));
+            document.querySelectorAll('i[data-start-timer]').forEach(function(el) {
+                el.addEventListener('click', function() {
+                    if (el.classList.contains('stopped')) {
+                        fetch(el.getAttribute('data-start-timer'), {
+                            method: `POST`,
+                        })
+                            .then(response => {
+                                if (response.status === 200) {
+                                    alert('Timer started!');
+                                    el.classList.remove('stopped');
+                                    el.classList.add('started');
+                                } else {
+                                    alert('An error has occurred');
+                                }
+                            });
+                    } else {
+                        fetch(el.getAttribute('data-stop-timer'), {
+                            method: `POST`,
+                        })
+                            .then(response => {
+                                if (response.status === 200) {
+                                    alert('Timer stopped!');
+                                    el.classList.remove('started');
+                                    el.classList.add('stopped');
+                                } else {
+                                    alert('An error has occurred');
+                                }
+                            });
+                    }
+
+                });
+            });
+            document.querySelectorAll('div[data-delete-command-url]').forEach(function(el) {
+                el.addEventListener('click', function(evt) {
+                    evt.preventDefault();
+                    location.reload();
+                    fetch(el.getAttribute('data-delete-command-url'), {
+                        method: `DELETE`,
+                    })
+                        .then(response => {
+                            if (response.status === 200) {
+                                alert('Command deleted!');
+                            } else {
+                                alert('An error ');
+                            }
+                        });
+                });
+            });
+        });
+    </script>
 {% endblock %}
