@@ -24,7 +24,7 @@
                     <div class="flex-center">
                         <input type="text" class="search-input" width="300px" id="{{ loop.index }}" value="{{ command.example }}">
                         <div class="">
-                            <img  width="20px" height="20px" data-row-id="{{ loop.index }}" src="{{ asset('build/images/copy.png') }}">
+                            <img  width="16px" style="margin-top: 15px" height="16px" data-row-id="{{ loop.index }}" src="{{ asset('build/images/copy.png') }}">
                         </div>
                     </div>
                 </td>
@@ -81,7 +81,6 @@
                 document.execCommand("copy");
             });
         })
-        console.log(document.querySelectorAll('img[data-row-id]'));
     })
 
 

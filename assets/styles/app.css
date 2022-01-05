@@ -353,9 +353,15 @@ tr:nth-child(even) {
 .search-input {
     text-decoration: none;
     background: transparent;
-    border: none;
     display: block;
     height: 32px;
     padding: 10px 30px;
     width: 80%;
+    border: 1px #cccccc;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    outline: none;
+    color: black;
 }
