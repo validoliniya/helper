@@ -51,6 +51,11 @@ Encore
         config.plugins.push('@babel/plugin-proposal-class-properties');
     })
 
+    .copyFiles({
+        from: './assets/img',
+        to: 'images/[path][name].[ext]',
+      })
+
     // enables @babel/preset-env polyfills
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
