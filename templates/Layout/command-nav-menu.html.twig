@@ -1,5 +1,5 @@
-<div class="">
-    <ul class="menu-main">
+<div class="menu-main table-align">
+    <ul class="left">
         <li><a href="{{ path('command.list') }}"
                class="menu-item">All</a></li>
         {% for section in sections %}
@@ -7,8 +7,14 @@
                    class="menu-item">{{ section.name|capitalize }}</a></li>
         {% endfor %}
     </ul>
-    <div class="part-2 left" style="margin-right: 15px">
-        <button><a class="white button" href="{{ path('timer.list') }}">Set time</a></button>
+    <div class="right">
+        <a href="#" style="padding-right: 15px">
+            <svg  width="40" height="40">
+                <use xlink:href="#alarm"></use>
+            </svg>
+        </a>
     </div>
 </div>
-<br>
+
+
+

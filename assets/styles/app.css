@@ -20,6 +20,7 @@ body {
 
 .menu-main {
     width: 100%;
+    margin-top: 20px;
     margin-bottom: 40px;
     padding-top: 10px;
     padding-bottom: 30px;
@@ -283,7 +284,6 @@ header
 TABLE {
     margin-top: 15px;
     border-color: #000 lightgrey;
-    width: 100%;
     background: white;
     border-collapse: collapse;
     border-radius: 10px;
@@ -334,4 +334,10 @@ tr:nth-child(even) {
     background: transparent;
     border: none;
     padding: 5px;
+}
+
+.table-align{
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
 }

@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     {{ render(path('command.nav.menu')) }}
-    <div class="flex-center">
+    <div class="flex-center table-align">
         <div class="part-2 left white"><h1>{{ section.name|capitalize }} Commands</h1></div>
         <div class="part-2 right" style="margin-right: 15px">
             <button><a class="white button" href="{{ path('command.create') }}">Add new command</a></button>
         </div>
     </div>
     {% if pagination.getItems|length > 0 %}
-    <table class="table">
+    <table class="table table-align">
         <thead>
         <tr>
             <th>Name</th>
@@ -41,29 +41,29 @@
         </tbody>
     </table>
     {% else %}
-        <div class="main-block white ">No commands found</div>
+        <div class="main-block white table-align" style="height: 200px; text-align: center"><h2 style="margin-top: auto">No commands found</h2></div>
     {% endif %}
     {{ knp_pagination_render(pagination, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
 {% endblock %}
 {% block javascripts %}
 <script>
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     document.querySelectorAll('div[data-delete-command-url]').forEach(function(el) {
-    //         el.addEventListener('click', function(evt) {
-    //             evt.preventDefault();
-    //             location.reload();
-    //             fetch(el.getAttribute('data-delete-command-url'),{
-    //                 method: `DELETE`,
-    //             })
-    //                 .then(response => {
-    //                     if(response.status === 200){
-    //                         alert('Command deleted!');
-    //                             } else {
-    //                              alert('An error ');
-    //                             }
-    //                 })
-    //         })
-    //     });
-    // })
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('div[data-delete-command-url]').forEach(function(el) {
+            el.addEventListener('click', function(evt) {
+                evt.preventDefault();
+                location.reload();
+                fetch(el.getAttribute('data-delete-command-url'),{
+                    method: `DELETE`,
+                })
+                    .then(response => {
+                        if(response.status === 200){
+                            alert('Command deleted!');
+                                } else {
+                                 alert('An error has occurred');
+                                }
+                    })
+            })
+        });
+    })
 </script>
 {% endblock %}

@@ -2,39 +2,42 @@
 
 {% block body %}
     {{ render(path('command.nav.menu')) }}
-    <div class="flex-center">
-        <div class="part-2 left white"><h1>All Commands</h1></div>
-        <div class="part-2 right" style="margin-right: 15px">
-            <button><a class="white button" href="{{ path('command.create') }}">Add new command</a></button>
-        </div>
-    </div>
     {% if pagination.getItems|length > 0 %}
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Section</th>
-            <th>Command</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for command in pagination %}
-            <tr>
-                <td>{{ command.name }}</td>
-                <td>{{ command.section.name }}</td>
-                <td>{{ command.example }}</td>
-                <td>
-                    <div class="flex-center">
-                        <a href="{{ path('command.update', {'id': command.id}) }}"><i class="fas fa-edit icon"></i></a>
-                        <div style="background: transparent;border: none;padding: 5px"><b> <i
-                                        class="fas fa-trash-alt icon"></i></b></div>
-                    </div>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div>
+            <div class="flex-center table-align">
+                <div class="part-2 left white"><h1>All Commands</h1></div>
+                <div class="part-2 right" style="margin-right: 15px">
+                    <button><a class="white button" href="{{ path('command.create') }}">Add new command</a></button>
+                </div>
+            </div>
+            <table class="table table-align">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Section</th>
+                    <th>Command</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for command in pagination %}
+                    <tr>
+                        <td>{{ command.name }}</td>
+                        <td>{{ command.section.name }}</td>
+                        <td>{{ command.example }}</td>
+                        <td>
+                            <div class="flex-center">
+                                <a href="{{ path('command.update', {'id': command.id}) }}"><i
+                                            class="fas fa-edit icon"></i></a>
+                                <div style="background: transparent;border: none;padding: 5px"><b> <i
+                                                class="fas fa-trash-alt icon"></i></b></div>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     {% else %}
         <div class="row ">No commands found</div>
     {% endif %}
