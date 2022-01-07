@@ -53,36 +53,11 @@
         <div class="main-block white table-align not-found-block"><h2 style="margin-top: auto">No commands found</h2></div>
     {% endif %}
     {{ knp_pagination_render(pagination, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+    {{ encore_entry_script_tags('copy') }}
+    {{ encore_entry_script_tags('command') }}
 {% endblock %}
 {% block javascripts %}
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('div[data-delete-command-url]').forEach(function(el) {
-            el.addEventListener('click', function(evt) {
-                evt.preventDefault();
-                location.reload();
-                fetch(el.getAttribute('data-delete-command-url'),{
-                    method: `DELETE`,
-                })
-                    .then(response => {
-                        if(response.status === 200){
-                            alert('Command deleted!');
-                                } else {
-                                 alert('An error has occurred');
-                                }
-                    })
-            })
-        });
-
-        document.querySelectorAll('img[data-row-id]').forEach(function(btn){
-            btn.addEventListener('click',function(){
-                let element = document.getElementById(btn.getAttribute('data-row-id'));
-                element.select();
-                document.execCommand("copy");
-            });
-        })
-    })
-
 
 </script>
 {% endblock %}

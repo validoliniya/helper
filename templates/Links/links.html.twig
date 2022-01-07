@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div>
+    <div class="tabs-container">
+        <ul class="tabs">
+            <li class="active">
+                <a href="">Part 1</a>
+            </li>
+            <li>
+                <a href="">Part 2</a>
+            </li>
+            <li>
+                <a href="">Part 3</a>
+            </li>
+        </ul>
+        <div class="tabs-content">
+            <div class="tabs-panel active" data-index="0">
+                Вкладка 1
+            </div>
+            <div class="tabs-panel" data-index="1">
+                Вкладка 2
+            </div>
+            <div class="tabs-panel" data-index="2">
+                Вкладка 3
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
