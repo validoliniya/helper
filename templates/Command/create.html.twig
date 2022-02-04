@@ -2,7 +2,7 @@
 {% block body %}
     <div class="white">  <h1>Add Command</h1></div>
         <div class="main-block white">
-            <div style="margin-left: 27%;" class="flex-center">
+            <div class="form">
             {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                 <div class="row">
                     <div class="part-2">{{ form_label(form.section) }}</div>
@@ -10,7 +10,7 @@
                 </div>
                 <div class="row">
                 <div class="part-2">{{ form_label(form.name) }}</div>
-                <div class="part-8">    {{ form_widget(form.name, {'attr' : {'class': 'input','label':'Name'}}) }}</div>
+                <div class="part-8">{{ form_widget(form.name, {'attr' : {'class': 'input','label':'Name'}}) }}</div>
             </div>
             <div class="row">
                 <div class="part-2">{{ form_label(form.is_immutable) }}</div>
