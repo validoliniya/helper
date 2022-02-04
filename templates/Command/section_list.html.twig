@@ -4,7 +4,7 @@
     <div class="flex-center table-align">
         <div class="part-2 left white"><h1>{{ section.name|capitalize }} Commands</h1></div>
         <div class="part-2 right" style="margin-right: 15px">
-            <button><a class="white button" href="{{ path('command.create') }}">Add new command</a></button>
+            <button><a class="white button" href="{{ path('command.create',{'section': section.id}) }}">Add new command</a></button>
         </div>
     </div>
     {% if pagination.getItems|length > 0 %}

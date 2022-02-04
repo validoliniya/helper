@@ -4,6 +4,7 @@ namespace App\Form\Command;
 
 use App\Entity\Command\Command;
 use App\Entity\Command\CommandSection;
+use App\Repository\Command\CommandSectionRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -14,8 +15,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EditType extends AbstractType
 {
+    private CommandSectionRepository $commandSectionRepository;
+
+    public function __construct(CommandSectionRepository $commandSectionRepository)
+    {
+        $this->commandSectionRepository = $commandSectionRepository;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $section = $this->commandSectionRepository->findOneById($options['section']);
         $builder
             ->add('name', TextType::class)
             ->add('is_immutable', ChoiceType::class, [
@@ -26,7 +35,8 @@ class EditType extends AbstractType
             ])
             ->add('section', EntityType::class, [
                 'label' => 'Section',
-                'class' => CommandSection::class
+                'class' => CommandSection::class,
+                'data'  => $section
             ])
             ->add('template', TextType::class, [
                 'empty_data' => ''
@@ -38,6 +48,7 @@ class EditType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
+            'section'      => null,
             'data_class'   => Command::class,
             'is_immutable' => true
         ]);
