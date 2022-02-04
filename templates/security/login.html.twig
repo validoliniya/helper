@@ -12,20 +12,23 @@
 
             <div class="row">
                 <div><label for="inputEmail">Email</label></div>
-                <div style="margin-left: 25px"><input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control input"
-                       required
-                       autofocus></div></div>
+                <div style="margin-left: 25px"><input type="email" value="{{ last_username }}" name="email"
+                                                      id="inputEmail" class="form-control input"
+                                                      required
+                                                      autofocus></div>
+            </div>
             <div class="row">
                 <div><label for="inputPassword">Password</label></div>
-                <div><input type="password" name="password" id="inputPassword" class="form-control input" required></div>
+                <div><input type="password" name="password" id="inputPassword" class="form-control input" required>
+                </div>
             </div>
             <input type="hidden" name="_csrf_token"
                    value="{{ csrf_token('authenticate') }}">
-<div>
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-</div>
+            <div>
+                <label>
+                    <input type="checkbox" name="_remember_me"> Remember me
+                </label>
+            </div>
 
             <button class="btn btn-lg btn-primary" type="submit">
                 Sign in

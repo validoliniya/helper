@@ -81,7 +81,7 @@ class CommandController extends AbstractController
     public function create(Request $request, EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator): Response
     {
         $sectionId = $request->query->get('section');
-        $form = $this->createForm(EditType::class, new Command(),['section'=>$sectionId]);
+        $form      = $this->createForm(EditType::class, new Command(), ['section' => $sectionId]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $command = $form->getData();

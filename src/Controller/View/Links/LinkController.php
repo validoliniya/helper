@@ -2,6 +2,7 @@
 
 namespace App\Controller\View\Links;
 
+use App\Repository\Links\LinkRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,12 +16,17 @@ class LinkController extends AbstractController
 {
     /**
      * @Route("/list", name="list", methods={"GET"})
-     * @param Request $request
+     * @param LinkRepository $linkRepository
      * @return Response
      */
-    public function list(Request $request): Response
+    public function list(LinkRepository $linkRepository): Response
     {
-        return $this->render('Links/links.html.twig');
+        $links = $linkRepository->findAllBySections();
+
+        return $this->render('Links/links.html.twig', [
+            'links'    => $links,
+            'sections' => array_keys($links)
+        ]);
     }
 
     /**

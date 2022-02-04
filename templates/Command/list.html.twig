@@ -26,9 +26,11 @@
                         <td>{{ command.section.name }}</td>
                         <td>
                             <div class="flex-center">
-                                <input type="text" class="search-input" width="300px" id="{{ loop.index }}" value="{{ command.example }}">
+                                <input type="text" class="search-input" width="300px" id="{{ loop.index }}"
+                                       value="{{ command.example }}">
                                 <div class="">
-                                    <img  width="16px" style="margin-top: 15px" height="16px" data-row-id="{{ loop.index }}" src="{{ asset('build/images/copy.png') }}">
+                                    <img width="16px" style="margin-top: 15px" height="16px"
+                                         data-row-id="{{ loop.index }}" src="{{ asset('build/images/copy.png') }}">
                                 </div>
                             </div>
                         </td>
@@ -54,7 +56,8 @@
             </table>
         </div>
     {% else %}
-        <div class="main-block white table-align not-found-block"><h2 style="margin-top: auto">No commands found</h2></div>
+        <div class="main-block white table-align not-found-block"><h2 style="margin-top: auto">No commands found</h2>
+        </div>
     {% endif %}
     {{ knp_pagination_render(pagination, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
 {% endblock %}

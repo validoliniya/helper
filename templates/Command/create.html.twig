@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="white">  <h1>Add Command</h1></div>
-        <div class="main-block white">
-            <div class="form">
+    <div class="white"><h1>Add Command</h1></div>
+    <div class="main-block white">
+        <div class="form">
             {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-                <div class="row">
-                    <div class="part-2">{{ form_label(form.section) }}</div>
-                    <div class="part-8">{{ form_widget(form.section, {'attr' : {'class': 'input'}}) }}</div>
-                </div>
-                <div class="row">
+            <div class="row">
+                <div class="part-2">{{ form_label(form.section) }}</div>
+                <div class="part-8">{{ form_widget(form.section, {'attr' : {'class': 'input'}}) }}</div>
+            </div>
+            <div class="row">
                 <div class="part-2">{{ form_label(form.name) }}</div>
                 <div class="part-8">{{ form_widget(form.name, {'attr' : {'class': 'input','label':'Name'}}) }}</div>
             </div>
@@ -16,10 +16,10 @@
                 <div class="part-2">{{ form_label(form.is_immutable) }}</div>
                 <div class="part-8">{{ form_widget(form.is_immutable, {'attr' : {'class': 'input'}}) }}</div>
             </div>
-                <div id="template-block" class="row {{ is_immutable ? 'hide' : '' }}">
-                    <div class="part-2">{{ form_label(form.template) }}</div>
-                    <div class="part-8">{{ form_widget(form.template, {'attr' : {'class': 'input'}}) }}</div>
-                </div>
+            <div id="template-block" class="row {{ is_immutable ? 'hide' : '' }}">
+                <div class="part-2">{{ form_label(form.template) }}</div>
+                <div class="part-8">{{ form_widget(form.template, {'attr' : {'class': 'input'}}) }}</div>
+            </div>
             <div class="row">
                 <div class="part-2">{{ form_label(form.example) }}</div>
                 <div class="part-8">{{ form_widget(form.example, {'attr' : {'class': 'input'}}) }}</div>
@@ -29,23 +29,24 @@
                 {{ form_widget(form.submit) }}
             </div>
             {{ form_end(form) }}
-            </div>
         </div>
+    </div>
 {% endblock %}
 {% block javascripts %}
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let templateBlock = document.getElementById('template-block');
-        document.getElementById('{{ form.children.is_immutable.vars.id }}').addEventListener('click', function(evt) {
-            evt.preventDefault();
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let templateBlock = document.getElementById('template-block');
+            document.getElementById('{{ form.children.is_immutable.vars.id }}')
+                .addEventListener('click', function(evt) {
+                    evt.preventDefault();
 
-            let is_immutable = document.getElementById('{{ form.children.is_immutable.vars.id }}').value;
-            if (is_immutable === '0') {
-                templateBlock.classList.remove('hide');
-            } else {
-                templateBlock.classList.add('hide');
-            }
+                    let is_immutable = document.getElementById('{{ form.children.is_immutable.vars.id }}').value;
+                    if (is_immutable === '0') {
+                        templateBlock.classList.remove('hide');
+                    } else {
+                        templateBlock.classList.add('hide');
+                    }
+                });
         });
-    });
-</script>
+    </script>
 {% endblock %}

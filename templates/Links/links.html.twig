@@ -1,32 +1,27 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<div>
-    <div class="tabs-container">
-        <ul class="tabs">
-            <li class="active">
-                <a href="">PHP</a>
-            </li>
-            <li>
-                <a href="">JS</a>
-            </li>
-            <li>
-                <a href="">Docker</a>
-            </li>
-        </ul>
-        <div class="tabs-content">
-            <div class="tabs-panel active" data-index="0">
-                {% for link in links %}
-
+    <div>
+        <div class="tabs-container">
+            <ul class="tabs">
+                {% for section in sections %}
+                    <li class="{{ loop.index < 2 ? 'active' : '' }}">
+                        <a href="">{{ section|capitalize }}</a>
+                    </li>
                 {% endfor %}
-            </div>
-            <div class="tabs-panel" data-index="1">
-                Вкладка 2
-            </div>
-            <div class="tabs-panel" data-index="2">
-                Вкладка 3
+            </ul>
+            <div class="tabs-content">
+                {% for index,section in sections %}
+                    <div class="tabs-panel {{ index  < 1 ? 'active': '' }}" data-index="{{ index }}">
+                        {% for link in links[section] %}
+                            <div style="margin: 20px">
+                                <img width="15px" height="15px" src="{{ asset('build/images/link.png') }}"> <a
+                                        href="{{ link.href }}">{{ link.name }}</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
-</div>
     {{ encore_entry_script_tags('tabs') }}
 {% endblock %}

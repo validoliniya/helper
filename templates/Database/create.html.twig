@@ -2,10 +2,10 @@
 {% block body %}
     <h3>Database</h3>
     <div class="main-block auth">
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-    {{ form_label(form.name)}}
-    {{ form_widget(form.name, {'attr' : {'class': 'input','label':'Name'}}) }}
-    {{ form_widget(form.submit) }}
-    {{ form_end(form) }}
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name, {'attr' : {'class': 'input','label':'Name'}}) }}
+        {{ form_widget(form.submit) }}
+        {{ form_end(form) }}
     </div>
 {% endblock %}

@@ -13,7 +13,7 @@ class CommandSectionFixtures extends BaseFixture
 
     protected function loadData(ObjectManager $manager)
     {
-        $this->createMany(CommandSection::class, 10, function (CommandSection $commandSection, $count) {
+        $this->createMany(CommandSection::class, count(self::DEFAULT_COMMANDS_SECTIONS), function (CommandSection $commandSection, $count) {
             $commandSection->setName(self::DEFAULT_COMMANDS_SECTIONS[$count]);
         });
 
