@@ -382,7 +382,7 @@ tr:nth-child(even) {
 }
 
 .tabs-container {
-    max-width: 1000px;
+    max-width: 85%;
     margin: 50px auto;
     padding: 25px;
 }
