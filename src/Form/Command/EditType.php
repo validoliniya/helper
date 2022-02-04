@@ -28,7 +28,7 @@ class EditType extends AbstractType
                 'label' => 'Section',
                 'class' => CommandSection::class
             ])
-            ->add('template', TextType::class,[
+            ->add('template', TextType::class, [
                 'empty_data' => ''
             ])
             ->add('example', TextType::class)

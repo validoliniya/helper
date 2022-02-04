@@ -19,8 +19,8 @@ class TimerRepository extends ServiceEntityRepository
         parent::__construct($registry, Timer::class);
     }
 
-    public function findOneById(int $id): ? Timer
+    public function findOneById(int $id): ?Timer
     {
-       return $this->find($id);
+        return $this->find($id);
     }
 }

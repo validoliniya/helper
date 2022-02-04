@@ -24,19 +24,21 @@ class DatabaseController extends AbstractController
      * @param Request                $request
      * @return Response
      */
-    public function create(EntityManagerInterface $entityManager,Request $request,UrlGeneratorInterface $urlGenerator): Response
+    public function create(EntityManagerInterface $entityManager, Request $request, UrlGeneratorInterface $urlGenerator): Response
     {
         $database = new Database();
-        $form = $this->createForm(DatabaseCreateForm::class,$database);
+        $form     = $this->createForm(DatabaseCreateForm::class, $database);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $database = $form->getData();
             $entityManager->persist($database);
             $entityManager->flush();
+
             return new RedirectResponse($urlGenerator->generate('database.list'));
         }
+
         return $this->render('Database/create.html.twig', [
-            'form'          => $form->createView(),
+            'form' => $form->createView(),
         ]);
     }
 
@@ -44,7 +46,8 @@ class DatabaseController extends AbstractController
      * @Route("/edit", name="database.edit", methods={"GET", "POST"})
      *
      */
-    public function update(){
+    public function update()
+    {
 
     }
 
@@ -52,8 +55,9 @@ class DatabaseController extends AbstractController
      * @Route("/list", name="database.list", methods={"GET"})
      *
      */
-    public function list(DatabaseRepository $databaseRepository){
-        return $this->render('Database/list.html.twig',[
+    public function list(DatabaseRepository $databaseRepository)
+    {
+        return $this->render('Database/list.html.twig', [
             'databases' => $databaseRepository->getLastByNumber(15)
         ]);
     }

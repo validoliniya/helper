@@ -28,7 +28,7 @@ class EditType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class'   => Timer::class
+            'data_class' => Timer::class
         ]);
     }
 }

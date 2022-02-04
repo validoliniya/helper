@@ -1,22 +1,23 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
 <div>
     <div class="tabs-container">
         <ul class="tabs">
             <li class="active">
-                <a href="">Part 1</a>
+                <a href="">PHP</a>
             </li>
             <li>
-                <a href="">Part 2</a>
+                <a href="">JS</a>
             </li>
             <li>
-                <a href="">Part 3</a>
+                <a href="">Docker</a>
             </li>
         </ul>
         <div class="tabs-content">
             <div class="tabs-panel active" data-index="0">
-                Вкладка 1
+                {% for link in links %}
+
+                {% endfor %}
             </div>
             <div class="tabs-panel" data-index="1">
                 Вкладка 2
@@ -27,4 +28,5 @@
         </div>
     </div>
 </div>
+    {{ encore_entry_script_tags('tabs') }}
 {% endblock %}

@@ -26,15 +26,16 @@ class CommandController extends AbstractController
      * @param CommandRepository $commandRepository
      * @return Response
      */
-    public function list(CommandRepository $commandRepository,Request $request,PaginatorInterface $paginator): Response
+    public function list(CommandRepository $commandRepository, Request $request, PaginatorInterface $paginator): Response
     {
         $pagination = $paginator->paginate(
             $commandRepository->createQueryBuilder('c'),
             $request->query->getInt('page', 1),
             5
         );
-        return $this->render('Command/list.html.twig',[
-           'pagination' => $pagination
+
+        return $this->render('Command/list.html.twig', [
+            'pagination' => $pagination
         ]);
     }
 
@@ -43,7 +44,7 @@ class CommandController extends AbstractController
      * @param CommandRepository $commandRepository
      * @return Response
      */
-    public function showSection(CommandRepository $commandRepository,Request $request,CommandSectionRepository $commandSectionRepository,PaginatorInterface $paginator,int $section_id): Response
+    public function showSection(CommandRepository $commandRepository, Request $request, CommandSectionRepository $commandSectionRepository, PaginatorInterface $paginator, int $section_id): Response
     {
         $queryBuilder = $commandRepository->getWithSearchBySectionIdQueryBuilder($section_id);
 
@@ -52,12 +53,12 @@ class CommandController extends AbstractController
             $request->query->getInt('page', 1),
             5
         );
-        return $this->render('Command/section_list.html.twig',[
+
+        return $this->render('Command/section_list.html.twig', [
             'pagination' => $pagination,
-            'section' => $commandSectionRepository->findOneById($section_id)
+            'section'    => $commandSectionRepository->findOneById($section_id)
         ]);
     }
-
 
     /**
      * @Route("/nav-menu", name="command.nav.menu", methods={"GET"})
@@ -66,7 +67,7 @@ class CommandController extends AbstractController
      */
     public function navMenu(CommandSectionRepository $commandSectionRepository): Response
     {
-        return $this->render('Layout/command-nav-menu.html.twig',[
+        return $this->render('Layout/command-nav-menu.html.twig', [
             'sections' => $commandSectionRepository->findAll()
         ]);
     }
@@ -102,9 +103,9 @@ class CommandController extends AbstractController
      * @param Request                $request
      * @return Response
      */
-    public function update(EntityManagerInterface $entityManager, Request $request, UrlGeneratorInterface $urlGenerator,Command $command): Response
+    public function update(EntityManagerInterface $entityManager, Request $request, UrlGeneratorInterface $urlGenerator, Command $command): Response
     {
-        $form = $this->createForm(EditType::class,$command);
+        $form = $this->createForm(EditType::class, $command);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $database = $form->getData();
@@ -115,7 +116,7 @@ class CommandController extends AbstractController
         }
 
         return $this->render('Command/create.html.twig', [
-            'form' => $form->createView(),
+            'form'         => $form->createView(),
             'is_immutable' => $command->isImmutable()
         ]);
     }

@@ -29,7 +29,8 @@ class TimerController extends AbstractController
      * @param PaginatorInterface $paginator
      * @return Response
      */
-    public function list(Request $request,TimerRepository $timerRepository,PaginatorInterface $paginator){
+    public function list(Request $request, TimerRepository $timerRepository, PaginatorInterface $paginator)
+    {
         $queryBuilder = $timerRepository->createQueryBuilder('t');
 
         $pagination = $paginator->paginate(
@@ -37,7 +38,8 @@ class TimerController extends AbstractController
             $request->query->getInt('page', 1),
             5
         );
-        return $this->render('Work/timer.html.twig',[
+
+        return $this->render('Work/timer.html.twig', [
             'pagination' => $pagination,
         ]);
     }
@@ -49,7 +51,7 @@ class TimerController extends AbstractController
      * @param UrlGeneratorInterface  $urlGenerator
      * @return Response
      */
-    public function create(Request $request,EntityManagerInterface $entityManager,UrlGeneratorInterface $urlGenerator)
+    public function create(Request $request, EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator)
     {
         $form = $this->createForm(EditType::class, new Timer());
         $form->handleRequest($request);
@@ -61,7 +63,8 @@ class TimerController extends AbstractController
 
             return new RedirectResponse($urlGenerator->generate('timer.list'));
         }
-        return $this->render('Work/edit.html.twig',[
+
+        return $this->render('Work/edit.html.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -84,8 +87,7 @@ class TimerController extends AbstractController
     )
     {
         $timer = $timerRepository->findOneById($id);
-        if(null === $timer)
-        {
+        if (null === $timer) {
             throw new NotFoundHttpException();
         }
         $form = $this->createForm(EditType::class, $timer);
@@ -98,7 +100,8 @@ class TimerController extends AbstractController
 
             return new RedirectResponse($urlGenerator->generate('timer.list'));
         }
-        return $this->render('Work/edit.html.twig',[
+
+        return $this->render('Work/edit.html.twig', [
             'form' => $form->createView()
         ]);
     }

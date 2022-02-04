@@ -14,11 +14,10 @@ class DatabaseCreateForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name',TextType::class)
-            ->add('submit',SubmitType::class,[
-                'label'=>'Save'
-            ])
-        ;
+            ->add('name', TextType::class)
+            ->add('submit', SubmitType::class, [
+                'label' => 'Save'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

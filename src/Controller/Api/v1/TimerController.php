@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Controller\Api\v1;
+
 use App\Repository\Work\TimerRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+
 /**
  * @Route("/api/v1/timer", name="api.timer.")
  */
@@ -30,7 +32,7 @@ class TimerController
     /**
      * @Route ("/{id}/stop", name="stop", methods={"POST"})
      */
-    public function stop(TimerRepository $timerRepository,EntityManagerInterface $entityManager, int $id): JsonResponse
+    public function stop(TimerRepository $timerRepository, EntityManagerInterface $entityManager, int $id): JsonResponse
     {
         $timer = $timerRepository->findOneById($id);
         if (!$timer) {

@@ -50,7 +50,7 @@ class Table
         return $this->database;
     }
 
-    public function setDatabase(Database $database) :self
+    public function setDatabase(Database $database): self
     {
         $this->database = $database;
 

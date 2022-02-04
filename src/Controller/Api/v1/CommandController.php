@@ -16,16 +16,17 @@ class CommandController extends AbstractController
     /**
      * @Route ("/{id}/delete", name="delete", methods={"DELETE"})
      */
-    public function delete(CommandRepository $commandRepository,EntityManagerInterface $entityManager,int $id):JsonResponse
+    public function delete(CommandRepository $commandRepository, EntityManagerInterface $entityManager, int $id): JsonResponse
     {
 
         $command = $commandRepository->findOneById($id);
-        if($command){
+        if ($command) {
             $entityManager->remove($command);
             $entityManager->flush();
+
             return new JsonResponse('Command deleted!');
-        }else{
-            return new JsonResponse('Command not found',400);
+        } else {
+            return new JsonResponse('Command not found', 400);
         }
     }
 }
