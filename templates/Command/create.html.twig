@@ -34,6 +34,7 @@
 
             <div class="row">
                 {{ form_widget(form.submit) }}
+                <a class="btn link-button" href="{{ path('command.list') }}">{{ 'Cancel'|trans }}</a>
             </div>
             {{ form_end(form) }}
         </div>
