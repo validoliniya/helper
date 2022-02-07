@@ -1,26 +1,37 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div>
-        <div class="tabs-container">
-            <ul class="tabs">
-                {% for section in sections %}
-                    <li class="{{ loop.index < 2 ? 'active' : '' }}">
-                        <a href="">{{ section|capitalize }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-            <div class="tabs-content">
-                {% for index,section in sections %}
-                    <div class="tabs-panel {{ index  < 1 ? 'active': '' }}" data-index="{{ index }}">
-                        {% for link in links[section] %}
-                            <div style="margin: 20px">
-                                <img width="15px" height="15px" src="{{ asset('build/images/link.png') }}"> <a
-                                        href="{{ link.href }}">{{ link.name }}</a>
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% endfor %}
+    <div class="tabs-container">
+        <div class="flex-center">
+            <div class="part-2 left white"><h1>{{ 'Links'|trans }}</h1></div>
+            <div class="part-2 right" style="margin-right: 15px">
+                <button><a class="white button" href="{{ path('links.create') }}">{{ 'Add link'|trans }}</a></button>
             </div>
+        </div>
+        <ul class="tabs">
+            {% for section in sections %}
+                <li class="{{ loop.index < 2 ? 'active' : '' }}">
+                    <a href="">{{ section|capitalize }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="tabs-content">
+            {% for index,section in sections %}
+                <div class="tabs-panel {{ index  < 1 ? 'active': '' }}" data-index="{{ index }}">
+                    {% for link in links[section] %}
+                        <div style="margin: 20px">
+                            <div class="dropdown">
+                                <img width="15px" height="15px" src="{{ asset('build/images/link.png') }}">
+                                <div class="dropdown-content">
+                                    <a href="{{ path('links.edit',{'id': link.id,'section': link.section.id}) }}">{{ 'Edit'|trans }}</a>
+                                    <a href="#" id="delete-link"
+                                       data-url="{{ path('api.v1.link.delete',{'id': link.id}) }}">{{ 'Delete'|trans }}</a>
+                                </div>
+                            </div>
+                            <a target="_blank" href="{{ link.href }}">{{ link.name }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
         </div>
     </div>
     {{ encore_entry_script_tags('tabs') }}

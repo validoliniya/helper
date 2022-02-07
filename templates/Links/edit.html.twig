@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="white"><h1>Add Link</h1></div>
+    <div class="main-block white">
+        <div class="form">
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+            <div class="row">
+                <div class="part-2">{{ form_label(form.section) }}</div>
+                <div class="part-8">{{ form_widget(form.section, {'attr' : {'class': 'input'}}) }}</div>
+            </div>
+            <div class="row">
+                <div class="part-2">{{ form_label(form.name) }}</div>
+                <div class="part-8">{{ form_widget(form.name, {'attr' : {'class': 'input','label':'Name'}}) }}</div>
+            </div>
+            <div class="row">
+                <div class="part-2">{{ form_label(form.href) }}</div>
+                <div class="part-8">{{ form_widget(form.href, {'attr' : {'class': 'input'}}) }}</div>
+            </div>
+            <div class="row">
+                {{ form_widget(form.submit) }}
+                <button style="margin-left: 5px">{{ 'Cancel'|trans }}</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

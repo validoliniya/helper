@@ -35,4 +35,9 @@ class LinkRepository extends ServiceEntityRepository
 
         return $result;
     }
+
+    public function findOneById(int $id): ?Link
+    {
+        return $this->find($id);
+    }
 }
