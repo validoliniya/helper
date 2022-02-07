@@ -4,7 +4,8 @@
         <div class="flex-center">
             <div class="part-2 left white"><h1>{{ 'Links'|trans }}</h1></div>
             <div class="part-2 right" style="margin-right: 15px">
-                <button><a class="white button" href="{{ path('links.create') }}">{{ 'Add link'|trans }}</a></button>
+                <a class="white link-button btn" href="{{ path('links.create') }}">{{ 'Add link'|trans }}</a>
+                <a class="white link-button btn" href="{{ path('command.list') }}">{{ 'Back to commands'|trans }}</a>
             </div>
         </div>
         <ul class="tabs">
