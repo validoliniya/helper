@@ -63,7 +63,7 @@ li {
 }
 
 .main-block {
-    background-color: rgba(221, 160, 221, .3);
+    background-color: rgba(221, 160, 221, .5);
     padding-top: 15px;
     display: block;
     align-items: center;
@@ -514,3 +514,9 @@ tr:nth-child(even) {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.form-error
+{
+    margin-top: 5px;
+    color: #000;
+}

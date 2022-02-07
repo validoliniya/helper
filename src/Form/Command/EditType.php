@@ -4,6 +4,7 @@ namespace App\Form\Command;
 
 use App\Entity\Command\Command;
 use App\Entity\Command\CommandSection;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use App\Repository\Command\CommandSectionRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -26,7 +27,12 @@ class EditType extends AbstractType
     {
         $section = $this->commandSectionRepository->findOneById($options['section']);
         $builder
-            ->add('name', TextType::class)
+            ->add('name', TextType::class, [
+                'empty_data'  => '',
+                'constraints' => [
+                    new NotBlank(),
+                ]
+            ])
             ->add('is_immutable', ChoiceType::class, [
                 'choices' => [
                     'yes' => true,
@@ -39,9 +45,19 @@ class EditType extends AbstractType
                 'data'  => $section
             ])
             ->add('template', TextType::class, [
-                'empty_data' => ''
+                'empty_data'  => '',
+                'required'    => true,
+                'constraints' => [
+                    new NotBlank(),
+                ]
             ])
-            ->add('example', TextType::class)
+            ->add('example', TextType::class, [
+                'empty_data'  => '',
+                'required'    => true,
+                'constraints' => [
+                    new NotBlank(),
+                ]
+            ])
             ->add('submit', SubmitType::class);
     }
 

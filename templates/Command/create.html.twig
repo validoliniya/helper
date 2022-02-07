@@ -9,20 +9,27 @@
                 <div class="part-8">{{ form_widget(form.section, {'attr' : {'class': 'input'}}) }}</div>
             </div>
             <div class="row">
-                <div class="part-2">{{ form_label(form.name) }}</div>
-                <div class="part-8">{{ form_widget(form.name, {'attr' : {'class': 'input','label':'Name'}}) }}</div>
+                <div class="part-2"><label>{{ 'Name' }}</label></div>
+                <div class="part-8">
+                    {{ form_widget(form.name, {'attr' : {'class': 'input'}}) }}
+                    <div class="form-error"> {{ form_errors(form.name) }}</div>
+                </div>
             </div>
             <div class="row">
                 <div class="part-2">{{ form_label(form.is_immutable) }}</div>
                 <div class="part-8">{{ form_widget(form.is_immutable, {'attr' : {'class': 'input'}}) }}</div>
             </div>
             <div id="template-block" class="row {{ is_immutable ? 'hide' : '' }}">
-                <div class="part-2">{{ form_label(form.template) }}</div>
-                <div class="part-8">{{ form_widget(form.template, {'attr' : {'class': 'input'}}) }}</div>
+                <div class="part-2"><label>{{ 'Template' }}</label></div>
+                <div class="part-8">{{ form_widget(form.template, {'attr' : {'class': 'input'}}) }}
+                    <div class="form-error">{{ form_errors(form.template) }}</div>
+                </div>
             </div>
             <div class="row">
-                <div class="part-2">{{ form_label(form.example) }}</div>
-                <div class="part-8">{{ form_widget(form.example, {'attr' : {'class': 'input'}}) }}</div>
+                <div class="part-2"><label>{{ 'Example' }}</label></div>
+                <div class="part-8">{{ form_widget(form.example, {'attr' : {'class': 'input'}}) }}
+                    <div class="form-error">{{ form_errors(form.example) }}</div>
+                </div>
             </div>
 
             <div class="row">
