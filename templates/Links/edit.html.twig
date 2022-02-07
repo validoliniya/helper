@@ -17,8 +17,8 @@
                 <div class="part-8">{{ form_widget(form.href, {'attr' : {'class': 'input'}}) }}</div>
             </div>
             <div class="row">
-                {{ form_widget(form.submit) }}
-                <button style="margin-left: 5px">{{ 'Cancel'|trans }}</button>
+                 {{ form_widget(form.submit) }}
+               <a class="btn cancel-button" href="{{ path('links.list') }}">{{ 'Cancel'|trans }}</a>
             </div>
             {{ form_end(form) }}
         </div>

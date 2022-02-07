@@ -109,6 +109,11 @@ button {
     transition: 0.2s;
     min-width: 200px;
 }
+
+A {
+    text-decoration: none;
+}
+
 .btn {
     display: inline-block;
     color: white;
@@ -125,10 +130,11 @@ button {
     min-width: 200px;
 }
 
-A {
-    text-decoration: none;
+.cancel-button{
+    margin-left: 5px;
+    min-width: 120px;
+    text-align: center
 }
-
 .row {
     padding: 15px 0;
     margin: 0 -10px;
