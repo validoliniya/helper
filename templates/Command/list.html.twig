@@ -37,7 +37,7 @@
                         <td>
                             <div class="flex-center">
                                 <div style="margin-top: 2px;padding-right: 20px">
-                                    <a href="{{ path('command.update', {'id': command.id}) }}">
+                                    <a href="{{ path('command.update', {'id': command.id, 'section': command.section.id}) }}">
                                         <svg width="15" height="15">
                                             <use xlink:href="#edit-icon"></use>
                                         </svg>

@@ -98,15 +98,15 @@ class CommandController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/update", name="command.update", methods={"GET", "POST"})
+     * @Route("/{id}/update/{section}", name="command.update", methods={"GET", "POST"})
      * @Entity("command", options={"mapping": {"id": "id"}})
      * @param EntityManagerInterface $entityManager
      * @param Request                $request
      * @return Response
      */
-    public function update(EntityManagerInterface $entityManager, Request $request, UrlGeneratorInterface $urlGenerator, Command $command): Response
+    public function update(EntityManagerInterface $entityManager, Request $request, UrlGeneratorInterface $urlGenerator, Command $command, int $section): Response
     {
-        $form = $this->createForm(EditType::class, $command);
+        $form = $this->createForm(EditType::class, $command,['section'=>$section]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $database = $form->getData();

@@ -46,10 +46,7 @@ class EditType extends AbstractType
             ])
             ->add('template', TextType::class, [
                 'empty_data'  => '',
-                'required'    => true,
-                'constraints' => [
-                    new NotBlank(),
-                ]
+                'required'    => false,
             ])
             ->add('example', TextType::class, [
                 'empty_data'  => '',
@@ -64,7 +61,7 @@ class EditType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'section'      => null,
+            'section'      => 1,
             'data_class'   => Command::class,
             'is_immutable' => true
         ]);
