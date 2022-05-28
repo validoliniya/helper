@@ -51,7 +51,7 @@ class CommandController extends AbstractController
         $pagination = $paginator->paginate(
             $queryBuilder,
             $request->query->getInt('page', 1),
-            5
+            10
         );
 
         return $this->render('Command/section_list.html.twig', [
