@@ -17,6 +17,19 @@ addEventListenersToDeleteBtn = function(){
     });
 }
 
+addEventListenersToCopyBtns = function(){
+    document.querySelectorAll('img[data-row-id]').forEach(function(el){
+        el.addEventListener('click',function(){
+            fetch(el.getAttribute('data-increase-command-rank-url'),{
+                method: `PUT`,
+            }).catch(function(){
+                alert('Cannot increase command rank!')
+            })
+        });
+    })
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    addEventListenersToCopyBtns();
     addEventListenersToDeleteBtn();
 })

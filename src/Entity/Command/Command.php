@@ -44,6 +44,11 @@ class Command
      */
     private $section;
 
+    /**
+     * @ORM\Column(type="integer", options={"default" : 0})
+     */
+    private int $rank = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -107,5 +112,22 @@ class Command
         $this->section = $section;
 
         return $this;
+    }
+
+    public function getRank(): int
+    {
+        return $this->rank;
+    }
+
+    public function setRank(int $rank): self
+    {
+        $this->rank = $rank;
+
+        return $this;
+    }
+
+    public function incrementRank()
+    {
+        $this->rank++;
     }
 }

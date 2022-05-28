@@ -41,7 +41,8 @@ class CommandRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('c')
                     ->where('IDENTITY(c.section) = :id')
-                    ->setParameter('id', $id);
+                    ->setParameter('id', $id)
+                    ->orderBy('c.rank', 'DESC');
 
     }
 
