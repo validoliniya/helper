@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="json-block">
+    <div class="img-block mb-1">
+        <div class="part-3 padding"><input class="input" placeholder="name"></div>
+        <div class="part-6 padding"><input class="input" placeholder="value"></div>
+        <div class="part-3"><select class="select-css padding ">
+                <option value="string">String</option>
+                <option value="number">Number</option>
+                <option value="array">Array</option>
+                <option value="bool">Boolean</option>
+            </select></div>
+    </div>
+    </div>
+</div>
+{% endblock %}
