@@ -29,7 +29,7 @@ class CommandController extends AbstractController
     public function list(CommandRepository $commandRepository, Request $request, PaginatorInterface $paginator): Response
     {
         $pagination = $paginator->paginate(
-            $commandRepository->createQueryBuilder('c'),
+            $commandRepository->createQueryBuilder('c')->orderBy('c.rank','DESC'),
             $request->query->getInt('page', 1),
             5
         );
