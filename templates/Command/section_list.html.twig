@@ -10,12 +10,10 @@
     </div>
     {% if pagination.getItems|length > 0 %}
         <table class="table table-align">
-            <thead>
-            <tr>
+            <thead style="background-color: rgba(0, 0, 139, .8)">
                 <th>Name</th>
                 <th>Command</th>
                 <th>Actions</th>
-            </tr>
             </thead>
             <tbody>
             {% for command in pagination %}

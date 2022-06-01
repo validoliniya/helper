@@ -10,14 +10,12 @@
                     <button><a class="white button" href="{{ path('command.create') }}">Add new command</a></button>
                 </div>
             </div>
-            <table class="table table-align">
-                <thead>
-                <tr>
+            <table class="table table-align table-responsive">
+                <thead style="background-color: rgba(0, 0, 139, .8)">
                     <th>Name</th>
                     <th>Section</th>
                     <th>Command</th>
                     <th>Actions</th>
-                </tr>
                 </thead>
                 <tbody>
                 {% for command in pagination %}
