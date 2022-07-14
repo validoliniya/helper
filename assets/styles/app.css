@@ -78,6 +78,22 @@ li {
     transition: 0.3s;
 }
 
+.edit-block {
+    background-color: rgba(221, 160, 221, .5);
+    padding-top: 15px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 53em;
+    border-color: #000 #4B0082;
+    border-width: 3px;
+    border-style: solid none;
+    transition: 0.3s;
+}
+
 .json-block {
     background-color: rgba(221, 160, 221, .5);
     display: block;

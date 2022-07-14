@@ -3,19 +3,19 @@
 {% block body %}
     {{ render(path('command.nav.menu')) }}
     {% if pagination.getItems|length > 0 %}
-        <div>
-            <div class="flex-center table-align">
-                <div class="part-2 left white"><h1>All Commands</h1></div>
-                <div class="part-2 right" style="margin-right: 15px">
-                    <button><a class="white button" href="{{ path('command.create') }}">Add new command</a></button>
-                </div>
+        <div class="flex-center table-align table-responsive">
+            <div class="part-2 left white"><h1>All Commands</h1></div>
+            <div class="part-2 right" style="margin-right: 15px">
+               <a class="btn btn-light" href="{{ path('command.create') }}">Add new command</a>
             </div>
-            <table class="table table-align table-responsive">
+        </div>
+        <div class="table-align">
+            <table class="table table-responsive">
                 <thead style="background-color: rgba(0, 0, 139, .8)">
-                    <th>Name</th>
-                    <th>Section</th>
-                    <th>Command</th>
-                    <th>Actions</th>
+                <th>Name</th>
+                <th>Section</th>
+                <th>Command</th>
+                <th>Actions</th>
                 </thead>
                 <tbody>
                 {% for command in pagination %}

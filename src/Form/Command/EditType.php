@@ -55,7 +55,10 @@ class EditType extends AbstractType
                     new NotBlank(),
                 ]
             ])
-            ->add('submit', SubmitType::class);
+            ->add('submit', SubmitType::class,
+            [
+                'label'=>'Save'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

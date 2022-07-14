@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <div class="white"><h1>Add Command</h1></div>
-    <div class="main-block white">
+    <div class="edit-block white">
         <div class="form">
             {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
             <div class="row">
@@ -33,8 +33,10 @@
             </div>
 
             <div class="row">
-                {{ form_widget(form.submit) }}
-                <a class="btn link-button" href="{{ path('command.list') }}">{{ 'Cancel'|trans }}</a>
+                <div class="part-6"><a class="btn btn-light"
+                                       href="{{ path('command.list') }}">{{ 'Cancel'|trans }}</a>
+                    {{ form_widget(form.submit,{'attr':{'class': 'btn btn-dark', 'label': 'Save'}}) }}
+                </div>
             </div>
             {{ form_end(form) }}
         </div>
